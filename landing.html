@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0E1410">
+<title>Terra Verde — эко-ресторан · Малая Бронная, 12</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--olive:#556B2F;--mint:#98FF98;--wood:#8B5A2B;--graphite:#2F4F4F;--bg:#0E1410;--bg-2:#12261a;--fg:#E7F0E3;--fg-soft:#9fb3a3;--card-bg:rgba(24,42,30,.72);--card-brd:rgba(152,255,152,.14);--shadow:0 8px 32px rgba(0,0,0,.35);--radius:20px;}
+[data-theme="light"]{--bg:#F5F5DC;--bg-2:#E8F5E9;--fg:#2F4F4F;--fg-soft:#5a6b5a;--card-bg:rgba(255,255,255,.82);--card-brd:rgba(255,255,255,.6);--shadow:0 8px 32px rgba(85,107,47,.08);--graphite:#2F4F4F;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6;transition:background .5s,color .5s;}
+h1,h2,h3{font-family:'Montserrat',sans-serif;}
+a{color:var(--mint);text-decoration:none;}
+[data-theme="light"] a{color:var(--olive);}
+.container{max-width:1200px;margin:0 auto;padding:0 20px;}
+section{padding:80px 0;scroll-margin-top:70px;}
+.section-title{font-size:clamp(28px,4vw,48px);font-weight:800;margin-bottom:12px;color:var(--fg);}
+.section-sub{font-size:16px;color:var(--fg-soft);max-width:700px;margin-bottom:40px;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.card{background:var(--card-bg);border:1px solid var(--card-brd);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);}
+.card h3{font-size:18px;margin-bottom:8px;color:var(--mint);}
+[data-theme="light"] .card h3{color:var(--olive);}
+.card p{font-size:14px;color:var(--fg-soft);}
+.btn{display:inline-block;background:var(--olive);color:#fff;padding:14px 28px;border-radius:50px;font-family:'Montserrat';font-weight:700;font-size:14px;border:none;cursor:pointer;transition:all .3s;}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.1);}
+.btn.alt{background:var(--wood);}
+.btn.grey{background:var(--graphite);}
+.btn.small{padding:10px 20px;font-size:13px;}
+.badge{display:inline-block;background:rgba(152,255,152,.15);color:var(--mint);padding:4px 12px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;}
+[data-theme="light"] .badge{background:rgba(85,107,47,.12);color:var(--olive);}
+.header-bar{position:fixed;top:0;left:0;right:0;background:rgba(14,20,16,.92);backdrop-filter:blur(10px);z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+[data-theme="light"] .header-bar{background:rgba(245,245,220,.92);box-shadow:0 2px 20px rgba(0,0,0,.05);}
+.header-inner{max-width:1200px;margin:0 auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;}
+.header-logo{font-family:'Montserrat';font-weight:800;font-size:18px;color:var(--mint);}
+[data-theme="light"] .header-logo{color:var(--olive);}
+.header-nav{display:flex;gap:4px;align-items:center;flex-wrap:wrap;}
+.header-nav a{padding:8px 14px;border-radius:50px;font-size:13px;font-weight:600;color:var(--fg);transition:background .2s;cursor:pointer;}
+.header-nav a:hover{background:rgba(152,255,152,.1);color:var(--mint);}
+[data-theme="light"] .header-nav a:hover{background:rgba(85,107,47,.1);color:var(--olive);}
+.cart-btn{background:var(--olive);color:#fff;padding:8px 16px;border-radius:50px;border:none;cursor:pointer;font-weight:700;font-size:13px;display:flex;align-items:center;gap:6px;}
+.cart-badge{background:#fff;color:var(--olive);border-radius:50%;padding:1px 7px;font-size:11px;}
+.theme-toggle{background:none;border:none;font-size:20px;cursor:pointer;padding:6px;color:var(--fg);}
+
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle at 30% 20%,var(--bg-2),var(--bg) 60%);position:relative;overflow:hidden;padding-top:80px;}
+.hero-content{position:relative;z-index:1;padding:40px 20px;max-width:900px;}
+.hero h1{font-size:clamp(40px,7vw,90px);font-weight:800;line-height:1.05;margin-bottom:20px;}
+.hero h1 span{color:var(--mint);}
+[data-theme="light"] .hero h1 span{color:var(--olive);}
+.hero p{font-size:clamp(16px,2vw,22px);color:var(--fg-soft);max-width:700px;margin:0 auto 32px;}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:32px;}
+.hero-badge{background:var(--card-bg);border:1px solid var(--card-brd);padding:8px 16px;border-radius:50px;font-size:13px;font-weight:600;color:var(--mint);}
+[data-theme="light"] .hero-badge{color:var(--olive);}
+
+.menu-toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:20px;padding:16px;background:var(--card-bg);border-radius:16px;border:1px solid var(--card-brd);}
+.menu-search{flex:1;min-width:200px;padding:10px 16px;border:1px solid var(--card-brd);border-radius:50px;font-family:'Inter';font-size:14px;background:var(--bg);color:var(--fg);outline:none;transition:border .2s;}
+.menu-search:focus{border-color:var(--mint);}
+[data-theme="light"] .menu-search:focus{border-color:var(--olive);}
+.menu-sort{padding:10px 16px;border:1px solid var(--card-brd);border-radius:50px;font-family:'Inter';font-size:13px;background:var(--bg);color:var(--fg);cursor:pointer;outline:none;}
+.menu-filters{display:flex;gap:6px;flex-wrap:wrap;}
+.filter-btn{padding:8px 14px;border:1px solid var(--card-brd);background:var(--card-bg);border-radius:50px;font-size:12px;font-weight:600;color:var(--fg);cursor:pointer;transition:all .2s;}
+.filter-btn:hover{background:rgba(152,255,152,.08);}
+[data-theme="light"] .filter-btn:hover{background:rgba(85,107,47,.08);}
+.filter-btn.active{background:var(--mint);color:#0E1410;border-color:var(--mint);}
+[data-theme="light"] .filter-btn.active{background:var(--olive);color:#fff;border-color:var(--olive);}
+.menu-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;overflow-x:auto;padding-bottom:4px;}
+.menu-tab{padding:9px 16px;border:1px solid var(--card-brd);background:var(--card-bg);border-radius:50px;font-family:'Montserrat';font-weight:600;font-size:12px;color:var(--fg);cursor:pointer;transition:all .2s;white-space:nowrap;}
+.menu-tab:hover{background:rgba(152,255,152,.08);}
+.menu-tab.active{background:var(--mint);color:#0E1410;border-color:var(--mint);}
+[data-theme="light"] .menu-tab.active{background:var(--olive);color:#fff;border-color:var(--olive);}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;}
+.dish{background:var(--card-bg);border:1px solid var(--card-brd);border-radius:16px;padding:16px;display:flex;gap:14px;align-items:flex-start;transition:transform .2s,box-shadow .2s;position:relative;}
+.dish:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.2);}
+.dish.favorite{border-color:#E8A82A;box-shadow:0 0 0 1px #E8A82A inset;}
+.dish-emoji{font-size:36px;flex-shrink:0;width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:var(--bg-2);border-radius:12px;position:relative;}
+.dish-body{flex:1;min-width:0;}
+.dish-name{font-weight:700;font-size:15px;margin-bottom:4px;font-family:'Montserrat';line-height:1.3;padding-right:30px;}
+.dish-desc{font-size:12px;color:var(--fg-soft);font-style:italic;line-height:1.5;margin-bottom:6px;}
+.dish-badges{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px;}
+.dish-badge{font-size:9px;font-weight:700;padding:2px 8px;border-radius:50px;text-transform:uppercase;letter-spacing:.5px;}
+.dish-badge.popular{background:#F39C12;color:#fff;}
+.dish-badge.chef{background:var(--mint);color:#0E1410;}
+[data-theme="light"] .dish-badge.chef{background:var(--olive);color:#fff;}
+.dish-tags{display:flex;gap:4px;flex-wrap:wrap;}
+.dish-tag{background:rgba(152,255,152,.15);color:var(--mint);font-size:9px;font-weight:700;padding:2px 8px;border-radius:50px;text-transform:uppercase;letter-spacing:.5px;}
+[data-theme="light"] .dish-tag{background:rgba(85,107,47,.12);color:var(--olive);}
+.dish-meta{font-size:11px;color:var(--fg-soft);margin-top:4px;}
+.dish-price{font-weight:800;font-size:18px;color:var(--mint);font-family:'Montserrat';white-space:nowrap;align-self:flex-end;margin-bottom:32px;}
+[data-theme="light"] .dish-price{color:var(--olive);}
+.dish-actions{position:absolute;right:12px;bottom:12px;display:flex;gap:6px;}
+.dish-btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--card-brd);background:var(--card-bg);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .2s;color:var(--fg);}
+.dish-btn:hover{transform:scale(1.1);}
+.dish-btn.fav-active{background:#F39C12;color:#fff;border-color:#F39C12;}
+.dish-btn.add-btn{background:var(--mint);color:#0E1410;border-color:var(--mint);}
+[data-theme="light"] .dish-btn.add-btn{background:var(--olive);color:#fff;border-color:var(--olive);}
+.menu-empty{text-align:center;padding:60px 20px;color:var(--fg-soft);grid-column:1/-1;}
+
+.event{display:flex;gap:20px;align-items:flex-start;padding:20px;background:var(--card-bg);border:1px solid var(--card-brd);border-radius:16px;margin-bottom:12px;}
+.event-date{flex-shrink:0;width:70px;height:70px;background:var(--olive);color:#fff;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Montserrat';}
+.event-day{font-size:26px;font-weight:800;line-height:1;}
+.event-month{font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.9;}
+.event-body h3{font-size:16px;margin-bottom:4px;}
+.event-body p{font-size:13px;color:var(--fg-soft);}
+
+.address-card{background:linear-gradient(135deg,rgba(85,107,47,.15),rgba(152,255,152,.1));border:1px solid var(--card-brd);border-radius:20px;padding:40px;display:flex;align-items:center;gap:24px;}
+[data-theme="light"] .address-card{background:linear-gradient(135deg,rgba(85,107,47,.08),rgba(152,255,152,.15));}
+.address-icon{font-size:56px;flex-shrink:0;}
+.address-info h3{font-size:24px;font-family:'Montserrat';font-weight:800;margin-bottom:6px;color:var(--mint);}
+[data-theme="light"] .address-info h3{color:var(--olive);}
+.address-info p{font-size:14px;color:var(--fg-soft);margin-bottom:14px;}
+.address-info .btn{font-size:13px;padding:10px 20px;}
+
+.booking-form{display:grid;gap:14px;max-width:600px;}
+.field{display:flex;flex-direction:column;gap:6px;}
+.field label{font-size:12px;font-weight:700;color:var(--fg-soft);text-transform:uppercase;letter-spacing:.5px;}
+.field input,.field select,.field textarea{padding:12px 14px;border:1px solid var(--card-brd);border-radius:12px;background:var(--card-bg);font-family:'Inter';font-size:14px;color:var(--fg);outline:none;transition:border .2s;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--mint);}
+[data-theme="light"] .field input:focus,[data-theme="light"] .field select:focus,[data-theme="light"] .field textarea:focus{border-color:var(--olive);}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.form-success{background:rgba(39,174,96,.15);border:1px solid #27AE60;color:#27AE60;padding:14px 18px;border-radius:12px;font-size:14px;font-weight:600;margin-top:12px;display:none;}
+[data-theme="light"] .form-success{color:#1e8449;background:rgba(39,174,96,.1);}
+.form-success.show{display:block;animation:slideIn .3s ease;}
+@keyframes slideIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+
+.review{padding:16px 0;border-bottom:1px solid rgba(127,127,127,.15);}
+.review-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.review-name{font-weight:700;font-size:14px;}
+.review-stars{color:#F39C12;font-size:14px;}
+.review-text{font-size:13px;color:var(--fg-soft);line-height:1.6;}
+
+footer{background:#0a1008;color:#E7F0E3;padding:60px 0 30px;text-align:center;}
+[data-theme="light"] footer{background:var(--graphite);}
+footer h3{font-size:20px;margin-bottom:12px;color:var(--mint);}
+footer p{font-size:14px;opacity:.8;margin-bottom:6px;}
+footer a{color:var(--mint);}
+.footer-socials{display:flex;gap:16px;justify-content:center;margin:20px 0;font-size:24px;}
+
+.toast{position:fixed;left:50%;bottom:32px;transform:translate(-50%,20px);background:var(--olive);color:#fff;padding:14px 24px;border-radius:50px;font-size:14px;font-weight:600;z-index:9999;opacity:0;transition:all .35s cubic-bezier(.22,.61,.36,1);pointer-events:none;box-shadow:0 12px 40px rgba(0,0,0,.5);max-width:90vw;text-align:center;}
+.toast.show{opacity:1;transform:translate(-50%,0);}
+.toast.error{background:#C0392B;}
+.toast.success{background:#27AE60;}
+
+.cart-panel{position:fixed;top:0;right:0;bottom:0;width:360px;max-width:100vw;background:var(--card-bg);box-shadow:-8px 0 40px rgba(0,0,0,.4);z-index:200;transform:translateX(100%);transition:transform .3s ease;display:flex;flex-direction:column;backdrop-filter:blur(20px);}
+.cart-panel.open{transform:translateX(0);}
+.cart-head{padding:20px;border-bottom:1px solid var(--card-brd);display:flex;justify-content:space-between;align-items:center;}
+.cart-head h3{font-size:18px;color:var(--mint);}
+[data-theme="light"] .cart-head h3{color:var(--olive);}
+.cart-close{background:none;border:none;font-size:24px;cursor:pointer;color:var(--fg);}
+.cart-items{flex:1;overflow-y:auto;padding:16px 20px;}
+.cart-item{padding:12px 0;border-bottom:1px solid rgba(127,127,127,.15);display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.cart-item-name{flex:1;font-size:13px;}
+.cart-item-price{font-weight:700;font-size:13px;color:var(--mint);}
+[data-theme="light"] .cart-item-price{color:var(--olive);}
+.cart-item-remove{background:none;border:none;color:#C0392B;cursor:pointer;font-size:16px;}
+.cart-foot{padding:20px;border-top:1px solid var(--card-brd);}
+.cart-total{display:flex;justify-content:space-between;font-size:16px;font-weight:700;margin-bottom:16px;}
+.cart-total .amount{color:var(--mint);font-family:'Montserrat';font-size:20px;}
+[data-theme="light"] .cart-total .amount{color:var(--olive);}
+.cart-empty{text-align:center;padding:40px 20px;color:var(--fg-soft);}
+.cart-overlay{position:fixed;inset:0;background:rgba(8,15,10,.7);z-index:150;opacity:0;pointer-events:none;transition:opacity .3s;}
+.cart-overlay.show{opacity:1;pointer-events:auto;}
+
+@media(max-width:768px){
+  .grid-2,.grid-3{grid-template-columns:1fr;}
+  .field-row{grid-template-columns:1fr;}
+  .event{flex-direction:column;}
+  .hero h1{font-size:clamp(32px,9vw,56px);}
+  .header-nav{display:none;}
+  .cart-panel{width:100%;}
+  .address-card{flex-direction:column;text-align:center;padding:24px;}
+}
+</style>
+</head>
+<body>
+
+<header class="header-bar">
+  <div class="header-inner">
+    <div class="header-logo">🌿 Terra Verde</div>
+    <nav class="header-nav">
+      <a data-scroll href="#menu">Меню</a>
+      <a data-scroll href="#events">Афиша</a>
+      <a data-scroll href="#location">Локация</a>
+      <a data-scroll href="#booking">Бронь</a>
+      <a data-scroll href="#reviews">Отзывы</a>
+    </nav>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <button class="cart-btn" id="cartBtn" type="button">🛒 <span class="cart-badge" id="cartCount">0</span></button>
+      <button class="theme-toggle" id="themeToggle" type="button" title="Тема">☀️</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div style="font-size:64px;margin-bottom:16px;">🌿</div>
+    <h1>Эко-ресторан<br><span>Terra Verde</span></h1>
+    <p>Малая Бронная, 12 · Патриаршие пруды. Локальные продукты, zero-waste и эргономичный дизайн. Открытие — весна 2027.</p>
+    <div class="hero-badges">
+      <span class="hero-badge">♻️ Zero-waste</span>
+      <span class="hero-badge">⚡ −40% энергии</span>
+      <span class="hero-badge">🌱 14 поставщиков</span>
+      <span class="hero-badge">📍 Патриаршие пруды</span>
+    </div>
+    <a data-scroll href="#booking" class="btn" style="margin-right:8px;">Забронировать стол</a>
+    <a data-scroll href="#menu" class="btn alt">Смотреть меню</a>
+  </div>
+</section>
+
+<section id="menu" style="background:var(--bg-2);">
+  <div class="container">
+    <div class="badge">Меню</div>
+    <h2 class="section-title">Сезонная кухня</h2>
+    <p class="section-sub">Только локальные продукты, сезонное меню, минимум упаковки. Все блюда готовятся на открытой кухне.</p>
+
+    <div class="menu-toolbar">
+      <input type="search" class="menu-search" id="menuSearch" placeholder="🔍 Поиск по названию...">
+      <select class="menu-sort" id="menuSort">
+        <option value="default">Сортировка: по умолчанию</option>
+        <option value="price-asc">Цена: по возрастанию</option>
+        <option value="price-desc">Цена: по убыванию</option>
+        <option value="calories-asc">Калории: меньше</option>
+        <option value="calories-desc">Калории: больше</option>
+      </select>
+    </div>
+
+    <div class="menu-filters" style="margin-bottom:16px;">
+      <button class="filter-btn active" data-filter="all" type="button">Все</button>
+      <button class="filter-btn" data-filter="vegan" type="button">🌱 Веган</button>
+      <button class="filter-btn" data-filter="vegetarian" type="button">🥕 Вегетарианское</button>
+      <button class="filter-btn" data-filter="gluten-free" type="button">🌾 Без глютена</button>
+      <button class="filter-btn" data-filter="spicy" type="button">🌶️ Острое</button>
+      <button class="filter-btn" data-filter="popular" type="button">🔥 Хиты</button>
+      <button class="filter-btn" data-filter="chef" type="button">👨‍🍳 Выбор шефа</button>
+      <button class="filter-btn" data-filter="favorites" type="button">❤️ Избранное</button>
+    </div>
+
+    <div class="menu-tabs" id="menuTabs"></div>
+    <div class="menu-grid" id="menuGrid"></div>
+  </div>
+</section>
+
+<section id="events">
+  <div class="container">
+    <div class="badge">Афиша</div>
+    <h2 class="section-title">Ближайшие события</h2>
+    <p class="section-sub">Живые концерты, дегустации, мастер-классы и эко-свопы. Вход по брони.</p>
+    <div id="eventsList"></div>
+  </div>
+</section>
+
+<section id="location" style="background:var(--bg-2);">
+  <div class="container">
+    <div class="badge">Локация</div>
+    <h2 class="section-title">Как нас найти</h2>
+    <div class="grid-2" style="align-items:center;margin-top:30px;">
+      <div class="address-card">
+        <div class="address-icon">📍</div>
+        <div class="address-info">
+          <h3>Малая Бронная, 12</h3>
+          <p>Патриаршие пруды · 5 мин от м. Маяковская, 7 мин от м. Пушкинская</p>
+          <a href="https://yandex.ru/maps/?text=Москва%20Малая%20Бронная%2012" target="_blank" rel="noopener" class="btn small">Открыть в Яндекс.Картах →</a>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:16px;">
+          <h3>🕐 Часы работы</h3>
+          <p>Пн–Чт: 12:00–23:00<br>Пт–Сб: 12:00–01:00<br>Вс: 12:00–22:00</p>
+        </div>
+        <div class="card" style="margin-bottom:16px;">
+          <h3>🚗 Парковка</h3>
+          <p>Бесплатная для гостей, 20 мест + 2 EV-зарядки. Велопарковка на 6 мест.</p>
+        </div>
+        <div class="card">
+          <h3>🚇 Метро</h3>
+          <p>Маяковская — 5 минут пешком<br>Пушкинская — 7 минут пешком<br>Тверская — 8 минут пешком</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="booking">
+  <div class="container">
+    <div class="badge">Бронь</div>
+    <h2 class="section-title">Забронировать стол</h2>
+    <p class="section-sub">Онлайн-бронирование работает 24/7. Подтверждение придёт на email.</p>
+    <div class="grid-2" style="margin-top:30px;">
+      <form class="booking-form" id="bookingForm">
+        <div class="field"><label>Ваше имя *</label><input type="text" id="bName" placeholder="Александр" required></div>
+        <div class="field-row">
+          <div class="field"><label>Дата *</label><input type="date" id="bDate" required></div>
+          <div class="field"><label>Время *</label><input type="time" id="bTime" value="19:00" required></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Гостей</label><select id="bGuests"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6+</option></select></div>
+          <div class="field"><label>Телефон *</label><input type="tel" id="bPhone" placeholder="+7 (999) 000-00-00" required></div>
+        </div>
+        <div class="field"><label>Email</label><input type="email" id="bEmail" placeholder="you@example.com"></div>
+        <div class="field"><label>Пожелания</label><textarea id="bNote" rows="2" placeholder="У окна, день рождения, аллергии..."></textarea></div>
+        <button type="submit" class="btn">✓ Забронировать стол</button>
+        <div class="form-success" id="bookingSuccess"></div>
+      </form>
+      <div>
+        <div class="card" style="margin-bottom:16px;"><h3>📞 Телефон</h3><p>+7 (495) 123-45-67 — ежедневно с 10:00</p></div>
+        <div class="card" style="margin-bottom:16px;"><h3>✉️ Email</h3><p>hello@terraverde.ru</p></div>
+        <div class="card"><h3>📱 Соцсети</h3><p>@terraverde — Instagram, Telegram, VK</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="background:var(--bg-2);">
+  <div class="container">
+    <div class="badge">Отзывы</div>
+    <h2 class="section-title">Что говорят гости</h2>
+    <div class="grid-2" style="margin-top:30px;">
+      <div id="reviewsList"></div>
+      <form class="booking-form" id="reviewForm">
+        <h3 style="font-size:16px;margin-bottom:8px;">Оставить отзыв</h3>
+        <div class="field"><label>Ваше имя</label><input type="text" id="rName" placeholder="Как к вам обращаться?" required></div>
+        <div class="field"><label>Оценка</label><select id="rRating"><option value="5">⭐⭐⭐⭐⭐ Отлично</option><option value="4">⭐⭐⭐⭐ Хорошо</option><option value="3">⭐⭐⭐ Нормально</option><option value="2">⭐⭐ Плохо</option><option value="1">⭐ Ужасно</option></select></div>
+        <div class="field"><label>Отзыв</label><textarea id="rText" rows="3" placeholder="Что запомнилось?" required></textarea></div>
+        <button type="submit" class="btn alt">Отправить отзыв</button>
+        <div class="form-success" id="reviewSuccess"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <h3>Terra Verde</h3>
+    <p>Малая Бронная, 12 · Москва · +7 (495) 123-45-67</p>
+    <div class="footer-socials">
+      <a href="#" title="Instagram">📷</a>
+      <a href="#" title="Telegram">✈️</a>
+      <a href="#" title="VK">💬</a>
+    </div>
+    <p style="font-size:12px;opacity:.6;">© 2026 Terra Verde. Все блюда — из локальных продуктов. Открытие — весна 2027.</p>
+  </div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-head">
+    <h3>🛒 Ваш заказ</h3>
+    <button class="cart-close" id="cartClose" type="button">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot" id="cartFoot">
+    <div class="cart-total"><span>Итого:</span><span class="amount" id="cartTotal">0 ₽</span></div>
+    <button class="btn" style="width:100%;" id="cartCheckout" type="button">✓ Оформить заказ</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const MENU = {
+  starters: [
+    {id:'s1', name:'Салат с фермерской зеленью', desc:'Локальные травы, орехи, эко-масло', price:590, emoji:'🥗', tags:['vegan','gluten-free'], calories:180, popular:true},
+    {id:'s2', name:'Тыквенный крем-суп', desc:'Сезонная тыква, кокосовое молоко, семечки', price:450, emoji:'🍲', tags:['vegan'], calories:220, popular:true},
+    {id:'s3', name:'Тартар из мраморной говядины', desc:'Фермерская говядина, каперсы, желток', price:890, emoji:'🥩', tags:[], calories:320},
+    {id:'s4', name:'Брускетта с томатами', desc:'Хлеб на закваске, черри, базилик', price:380, emoji:'🍞', tags:['vegan'], calories:240},
+    {id:'s5', name:'Севиче из сибаса', desc:'Свежий сибас, лайм, красный лук', price:750, emoji:'🐟', tags:['gluten-free'], calories:190, chefChoice:true},
+    {id:'s6', name:'Хумус с питой', desc:'Домашний хумус, тахини, зелень', price:420, emoji:'🥙', tags:['vegan'], calories:280},
+    {id:'s7', name:'Вителло тоннато', desc:'Тонкая телятина, тунец, каперсы', price:890, emoji:'🍖', tags:[], calories:340},
+    {id:'s8', name:'Овощная тарелка', desc:'Сезонные овощи, дип из йогурта', price:520, emoji:'🥕', tags:['vegetarian','gluten-free'], calories:150},
+  ],
+  salads: [
+    {id:'sl1', name:'Цезарь с курицей', desc:'Романо, пармезан, гренки, курица', price:640, emoji:'🥬', tags:[], calories:320, popular:true},
+    {id:'sl2', name:'Греческий салат', desc:'Фета, оливки, огурцы, томаты', price:520, emoji:'🥗', tags:['vegetarian','gluten-free'], calories:240},
+    {id:'sl3', name:'Тёплый салат с говядиной', desc:'Руккола, черри, стейк', price:890, emoji:'🥩', tags:['gluten-free'], calories:420},
+    {id:'sl4', name:'Салат с киноа', desc:'Киноа, авокадо, гранат', price:580, emoji:'🌾', tags:['vegan','gluten-free'], calories:280, chefChoice:true},
+    {id:'sl5', name:'Салат с креветками', desc:'Креветки, авокадо, лайм', price:780, emoji:'🍤', tags:['gluten-free'], calories:260},
+    {id:'sl6', name:'Буррата с томатами', desc:'Свежая буррата, томаты, базилик', price:690, emoji:'🧀', tags:['vegetarian'], calories:380},
+  ],
+  soups: [
+    {id:'so1', name:'Борщ с говядиной', desc:'Классический, со сметаной', price:480, emoji:'🥣', tags:[], calories:340, popular:true},
+    {id:'so2', name:'Грибной крем-суп', desc:'Белые грибы, сливки, трюфель', price:520, emoji:'🍲', tags:['vegetarian'], calories:280},
+    {id:'so3', name:'Гаспачо', desc:'Холодный томатный суп', price:420, emoji:'🍅', tags:['vegan','gluten-free'], calories:140},
+    {id:'so4', name:'Уха по-фински', desc:'Лосось, сливки, картофель', price:620, emoji:'🐟', tags:['gluten-free'], calories:290},
+    {id:'so5', name:'Куриный бульон', desc:'Домашний, с лапшой', price:380, emoji:'🍜', tags:[], calories:220},
+  ],
+  pizza: [
+    {id:'p1', name:'Маргарита', desc:'Томаты Сан-Марцано, моцарелла, базилик', price:590, emoji:'🍕', tags:['vegetarian'], calories:780, popular:true},
+    {id:'p2', name:'Пепперони', desc:'Пепперони, моцарелла, орегано', price:720, emoji:'🍕', tags:[], calories:920},
+    {id:'p3', name:'4 сыра', desc:'Моцарелла, горгонзола, пармезан, чеддер', price:790, emoji:'🧀', tags:['vegetarian'], calories:1050, chefChoice:true},
+    {id:'p4', name:'Прошутто и руккола', desc:'Прошутто, руккола, пармезан', price:890, emoji:'🍕', tags:[], calories:880},
+    {id:'p5', name:'Веган-пицца', desc:'Овощи, веган-сыр, томаты', price:690, emoji:'🌱', tags:['vegan'], calories:640},
+  ],
+  pasta: [
+    {id:'pa1', name:'Карбонара', desc:'Гуанчале, желток, пекорино', price:690, emoji:'🍝', tags:[], calories:780, popular:true},
+    {id:'pa2', name:'Болоньезе', desc:'Говяжий фарш, томаты, пармезан', price:720, emoji:'🍝', tags:[], calories:820},
+    {id:'pa3', name:'Тартефу', desc:'Сливочный соус, трюфель, пармезан', price:890, emoji:'🍝', tags:['vegetarian'], calories:880, chefChoice:true},
+    {id:'pa4', name:'Песто', desc:'Базилик, кедровые орехи, пармезан', price:640, emoji:'🌿', tags:['vegetarian'], calories:720},
+    {id:'pa5', name:'Аматричана', desc:'Томаты, гуанчале, пекорино', price:740, emoji:'🍝', tags:[], calories:800},
+  ],
+  mains: [
+    {id:'m1', name:'Стейк из мраморной говядины', desc:'Рибай 300г, печёный картофель, чимичурри', price:1890, emoji:'🥩', tags:[], calories:920, popular:true, chefChoice:true},
+    {id:'m2', name:'Ризотто с белыми грибами', desc:'Карнароли, пармезан, трюфельное масло', price:720, emoji:'🍚', tags:['vegetarian'], calories:580},
+    {id:'m3', name:'Куриная грудка на гриле', desc:'Овощи, соус из трав', price:890, emoji:'🍗', tags:['gluten-free'], calories:420},
+    {id:'m4', name:'Утиная грудка', desc:'Апельсиновый соус, пюре из батата', price:1450, emoji:'🦆', tags:[], calories:680},
+    {id:'m5', name:'Рагу из ягнёнка', desc:'Тушёный ягнёнок, овощи, розмарин', price:1650, emoji:'🍖', tags:[], calories:780},
+    {id:'m6', name:'Овощное рагу', desc:'Сезонные овощи, травы', price:590, emoji:'🥘', tags:['vegan','gluten-free'], calories:320},
+    {id:'m7', name:'Бургер Terra', desc:'Фермерская котлета, чеддер, бриошь', price:890, emoji:'🍔', tags:[], calories:820, popular:true},
+  ],
+  seafood: [
+    {id:'sf1', name:'Дорадо на гриле', desc:'Целая рыба, лимон, розмарин, овощи', price:1450, emoji:'🐟', tags:['gluten-free'], calories:420, chefChoice:true},
+    {id:'sf2', name:'Креветки темпура', desc:'Тигровые креветки, соус понзу', price:980, emoji:'🍤', tags:[], calories:540},
+    {id:'sf3', name:'Осьминог на гриле', desc:'Средиземноморский, соус чимичурри', price:1690, emoji:'🐙', tags:['gluten-free'], calories:380},
+    {id:'sf4', name:'Мидии в белом вине', desc:'Мидии, сливочный соус, зелень', price:890, emoji:'🦪', tags:[], calories:320},
+    {id:'sf5', name:'Лосось на гриле', desc:'Стейк лосося, спаржа, лимон', price:1290, emoji:'🐟', tags:['gluten-free'], calories:480, popular:true},
+  ],
+  grill: [
+    {id:'g1', name:'Шашлык из свинины', desc:'Мясо на гриле, лук, соус ткемали', price:890, emoji:'🍢', tags:[], calories:680, popular:true},
+    {id:'g2', name:'Шашлык из курицы', desc:'Куриное филе, маринад из трав', price:690, emoji:'🍢', tags:['gluten-free'], calories:480},
+    {id:'g3', name:'Люля-кебаб', desc:'Фарш из говядины, специи, лаваш', price:790, emoji:'🍢', tags:[], calories:620},
+    {id:'g4', name:'Овощи на гриле', desc:'Баклажан, кабачок, перец, томаты', price:490, emoji:'🥬', tags:['vegan','gluten-free'], calories:180},
+    {id:'g5', name:'Стейк из лосося', desc:'Стейк лосося на гриле, лимон', price:1190, emoji:'🐟', tags:['gluten-free'], calories:480},
+  ],
+  sides: [
+    {id:'sd1', name:'Картофель фри', desc:'Хрустящий, с солью', price:280, emoji:'🍟', tags:['vegetarian'], calories:320},
+    {id:'sd2', name:'Пюре с трюфелем', desc:'Картофельное пюре, трюфельное масло', price:340, emoji:'🥔', tags:['vegetarian','gluten-free'], calories:280},
+    {id:'sd3', name:'Овощи на пару', desc:'Брокколи, морковь, зелёный горошек', price:290, emoji:'🥦', tags:['vegan','gluten-free'], calories:120},
+    {id:'sd4', name:'Рис с овощами', desc:'Пропаренный рис, овощи, соевый соус', price:290, emoji:'🍚', tags:['vegan'], calories:320},
+  ],
+  desserts: [
+    {id:'d1', name:'Тирамису', desc:'Классический, маскарпоне, эспрессо', price:450, emoji:'🍰', tags:['vegetarian'], calories:380, popular:true},
+    {id:'d2', name:'Тарт с яблоками', desc:'Карамель, корица, сливки', price:420, emoji:'🍎', tags:['vegetarian'], calories:340},
+    {id:'d3', name:'Панна котта', desc:'Сезонные ягоды, мята', price:380, emoji:'🍮', tags:['vegetarian','gluten-free'], calories:280},
+    {id:'d4', name:'Шоколадный фондан', desc:'Тёплый, с мороженым ваниль', price:490, emoji:'🍫', tags:['vegetarian'], calories:520, chefChoice:true},
+    {id:'d5', name:'Чизкейк Нью-Йорк', desc:'Классический, с ягодным соусом', price:450, emoji:'🍰', tags:['vegetarian'], calories:440},
+    {id:'d6', name:'Сорбет из манго', desc:'Освежающий, без сахара', price:320, emoji:'🥭', tags:['vegan','gluten-free'], calories:140},
+  ],
+  drinks: [
+    {id:'dr1', name:'Домашний лимонад', desc:'Сезонные ягоды, мята', price:290, emoji:'🥤', tags:['vegan'], calories:120, popular:true},
+    {id:'dr2', name:'Крафтовое пиво', desc:'Локальная пивоварня, 0.5л', price:350, emoji:'🍺', tags:['vegan'], calories:180},
+    {id:'dr3', name:'Свежевыжатый сок', desc:'Апельсин / яблоко / морковь', price:320, emoji:'🧃', tags:['vegan','gluten-free'], calories:100},
+    {id:'dr4', name:'Кокосовая вода', desc:'Натуральная, охлаждённая', price:290, emoji:'🥥', tags:['vegan','gluten-free'], calories:60},
+    {id:'dr5', name:'Смузи зелёный', desc:'Шпинат, яблоко, банан, имбирь', price:390, emoji:'🥬', tags:['vegan','gluten-free'], calories:180},
+  ],
+  cocktails: [
+    {id:'c1', name:'Апероль шприц', desc:'Апероль, просекко, содовая', price:590, emoji:'🍹', tags:[], calories:180, popular:true},
+    {id:'c2', name:'Негрони', desc:'Джин, кампари, красный вермут', price:620, emoji:'🍸', tags:[], calories:200},
+    {id:'c3', name:'Мохито', desc:'Ром, мята, лайм, содовая', price:490, emoji:'🍹', tags:['vegan'], calories:160},
+    {id:'c4', name:'Маргарита', desc:'Текила, трипл-сек, лайм', price:590, emoji:'🍸', tags:['gluten-free'], calories:220},
+    {id:'c5', name:'Джин-тоник', desc:'Джин, тоник, лайм, розмарин', price:490, emoji:'🍹', tags:['vegan','gluten-free'], calories:180},
+    {id:'c6', name:'Безалкогольный мохито', desc:'Мята, лайм, содовая, лёд', price:320, emoji:'🍹', tags:['vegan','gluten-free'], calories:60},
+  ],
+  wine: [
+    {id:'w1', name:'Биодинамическое вино', desc:'Красное / белое, бокал', price:590, emoji:'🍷', tags:['vegan'], calories:120, chefChoice:true},
+    {id:'w2', name:'Шампанское', desc:'Классическое, бокал', price:890, emoji:'🍾', tags:[], calories:120},
+    {id:'w3', name:'Просекко', desc:'Итальянское, бокал', price:490, emoji:'🍾', tags:['vegan','gluten-free'], calories:110},
+    {id:'w4', name:'Вино по бутылке', desc:'Красное / белое / розовое', price:2900, emoji:'🍷', tags:[], calories:600},
+  ],
+  coffee: [
+    {id:'co1', name:'Эспрессо', desc:'Локальная обжарка', price:180, emoji:'☕', tags:['vegan'], calories:5},
+    {id:'co2', name:'Капучино', desc:'Локальная обжарка, молоко', price:260, emoji:'☕', tags:['vegetarian'], calories:120},
+    {id:'co3', name:'Флэт уайт', desc:'Двойной эспрессо, молоко', price:290, emoji:'☕', tags:['vegetarian'], calories:140},
+    {id:'co4', name:'Травяной чай', desc:'Локальные травы, мёд', price:220, emoji:'🍵', tags:['vegan','gluten-free'], calories:30},
+    {id:'co5', name:'Матча-латте', desc:'Матча, миндальное молоко', price:320, emoji:'🍵', tags:['vegan','gluten-free'], calories:100},
+  ],
+  kids: [
+    {id:'k1', name:'Куриные наггетсы', desc:'С картофельным пюре', price:390, emoji:'🍗', tags:[], calories:420},
+    {id:'k2', name:'Мини-пицца', desc:'Сыр, томаты, орегано', price:420, emoji:'🍕', tags:['vegetarian'], calories:520},
+    {id:'k3', name:'Макароны с сыром', desc:'Сливочный соус, пармезан', price:340, emoji:'🍝', tags:['vegetarian'], calories:480},
+    {id:'k4', name:'Молочный коктейль', desc:'Ваниль / шоколад / клубника', price:290, emoji:'🥤', tags:['vegetarian'], calories:280},
+  ]
+};
+
+const MENU_TABS = [
+  {id:'all', label:'Все'},
+  {id:'starters', label:'Закуски'},
+  {id:'salads', label:'Салаты'},
+  {id:'soups', label:'Супы'},
+  {id:'pizza', label:'Пицца'},
+  {id:'pasta', label:'Паста'},
+  {id:'mains', label:'Горячее'},
+  {id:'seafood', label:'Морепродукты'},
+  {id:'grill', label:'Гриль'},
+  {id:'sides', label:'Гарниры'},
+  {id:'desserts', label:'Десерты'},
+  {id:'drinks', label:'Напитки'},
+  {id:'cocktails', label:'Коктейли'},
+  {id:'wine', label:'Вино'},
+  {id:'coffee', label:'Кофе и чай'},
+  {id:'kids', label:'Детское'}
+];
+
+const EVENTS = [
+  {day:'15', month:'ноя', title:'Живой акустический вечер', desc:'Группа «Зелёный шум» · Вход 500 ₽'},
+  {day:'22', month:'ноя', title:'Дегустация локальных вин', desc:'5 вин от винодельни «Юг» · 1200 ₽'},
+  {day:'29', month:'ноя', title:'Мастер-класс: паста ручной работы', desc:'Шеф Алексей · 2500 ₽'},
+  {day:'06', month:'дек', title:'Эко-своп одежды', desc:'Приносите ненужное · Бесплатно'},
+];
+
+const SEED_REVIEWS = [
+  {name:'Анна К.', rating:5, text:'Потрясающая атмосфера, чувствуется забота о деталях. Ризотто с грибами — топ!'},
+  {name:'Дмитрий П.', rating:5, text:'Лучший эко-ресторан на Патриарших. Стейк приготовили идеально.'},
+  {name:'Ольга М.', rating:4, text:'Очень вкусно, но в пятницу вечером было шумновато. Рекомендую будни.'}
+];
+
+let state = {
+  activeTab: 'all',
+  activeFilter: 'all',
+  searchQuery: '',
+  sort: 'default',
+  favorites: loadLS('tv:favorites', []),
+  cart: loadLS('tv:cart', [])
+};
+
+function loadLS(key, def){ try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : def; } catch(e) { return def; } }
+function saveLS(key, val){ try { localStorage.setItem(key, JSON.stringify(val)); } catch(e) {} }
+
+function toast(msg, type='success'){
+  const t = document.getElementById('toast');
+  if(!t) return;
+  t.textContent = msg;
+  t.className = 'toast show ' + type;
+  clearTimeout(t._tm);
+  t._tm = setTimeout(()=>{ t.classList.remove('show'); }, 3500);
+}
+
+function getMenuItems(){
+  let items = [];
+  if(state.activeTab === 'all'){
+    Object.keys(MENU).forEach(cat => {
+      MENU[cat].forEach(item => items.push({...item, category: cat}));
+    });
+  } else {
+    items = (MENU[state.activeTab] || []).map(i => ({...i, category: state.activeTab}));
+  }
+  if(state.activeFilter !== 'all'){
+    if(state.activeFilter === 'favorites'){ items = items.filter(i => state.favorites.includes(i.id)); }
+    else if(state.activeFilter === 'popular'){ items = items.filter(i => i.popular); }
+    else if(state.activeFilter === 'chef'){ items = items.filter(i => i.chefChoice); }
+    else { items = items.filter(i => i.tags && i.tags.includes(state.activeFilter)); }
+  }
+  if(state.searchQuery){
+    const q = state.searchQuery.toLowerCase();
+    items = items.filter(i => i.name.toLowerCase().includes(q) || (i.desc && i.desc.toLowerCase().includes(q)));
+  }
+  if(state.sort === 'price-asc') items.sort((a,b) => a.price - b.price);
+  else if(state.sort === 'price-desc') items.sort((a,b) => b.price - a.price);
+  else if(state.sort === 'calories-asc') items.sort((a,b) => (a.calories||0) - (b.calories||0));
+  else if(state.sort === 'calories-desc') items.sort((a,b) => (b.calories||0) - (a.calories||0));
+  return items;
+}
+
+function renderMenu(){
+  const tabs = document.getElementById('menuTabs');
+  if(tabs){
+    tabs.innerHTML = MENU_TABS.map(t =>
+      `<button class="menu-tab${t.id===state.activeTab?' active':''}" data-cat="${t.id}" type="button">${t.label}</button>`
+    ).join('');
+  }
+  const grid = document.getElementById('menuGrid');
+  if(!grid) return;
+  const items = getMenuItems();
+  if(items.length === 0){
+    grid.innerHTML = '<div class="menu-empty">😔 Ничего не найдено. Попробуйте изменить фильтры или поиск.</div>';
+    return;
+  }
+  grid.innerHTML = items.map(item => {
+    const isFav = state.favorites.includes(item.id);
+    const badges = [];
+    if(item.popular) badges.push('<span class="dish-badge popular">🔥 Хит</span>');
+    if(item.chefChoice) badges.push('<span class="dish-badge chef">👨‍🍳 Шеф</span>');
+    const tags = (item.tags || []).map(t => {
+      const labels = {'vegan':'🌱 Веган','vegetarian':'🥕 Вегет.','gluten-free':'🌾 Без глютена','spicy':'🌶️ Остро'};
+      return `<span class="dish-tag">${labels[t]||t}</span>`;
+    }).join('');
+    return `
+      <div class="dish${isFav?' favorite':''}" data-id="${item.id}">
+        <div class="dish-emoji">${item.emoji}</div>
+        <div class="dish-body">
+          <div class="dish-name">${item.name}</div>
+          <div class="dish-desc">${item.desc}</div>
+          ${badges.length?`<div class="dish-badges">${badges.join('')}</div>`:''}
+          ${tags?`<div class="dish-tags">${tags}</div>`:''}
+          <div class="dish-meta">🔥 ${item.calories} ккал</div>
+        </div>
+        <div class="dish-price">${item.price} ₽</div>
+        <div class="dish-actions">
+          <button class="dish-btn fav-btn${isFav?' fav-active':''}" data-id="${item.id}" type="button" title="В избранное">${isFav?'❤️':'🤍'}</button>
+          <button class="dish-btn add-btn" data-id="${item.id}" type="button" title="В корзину">+</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function findItem(id){
+  for(const cat of Object.keys(MENU)){
+    const found = MENU[cat].find(i => i.id === id);
+    if(found) return found;
+  }
+  return null;
+}
+
+function addToCart(id){
+  const item = findItem(id);
+  if(!item) return;
+  const existing = state.cart.find(c => c.id === id);
+  if(existing){ existing.qty += 1; }
+  else { state.cart.push({id, name: item.name, price: item.price, emoji: item.emoji, qty: 1}); }
+  saveLS('tv:cart', state.cart);
+  updateCartBadge();
+  toast(`✓ «${item.name}» добавлено в заказ`, 'success');
+}
+
+function removeFromCart(id){
+  state.cart = state.cart.filter(c => c.id !== id);
+  saveLS('tv:cart', state.cart);
+  updateCartBadge();
+  renderCart();
+}
+
+function updateCartBadge(){
+  const total = state.cart.reduce((s,i) => s + i.qty, 0);
+  const badge = document.getElementById('cartCount');
+  if(badge) badge.textContent = total;
+}
+
+function renderCart(){
+  const itemsEl = document.getElementById('cartItems');
+  const footEl = document.getElementById('cartFoot');
+  const totalEl = document.getElementById('cartTotal');
+  if(!itemsEl || !footEl || !totalEl) return;
+  if(state.cart.length === 0){
+    itemsEl.innerHTML = '<div class="cart-empty">🛒 Корзина пуста<br><br>Добавьте блюда из меню</div>';
+    footEl.style.display = 'none';
+    return;
+  }
+  footEl.style.display = 'block';
+  itemsEl.innerHTML = state.cart.map(c => `
+    <div class="cart-item">
+      <span style="font-size:24px;">${c.emoji||'🍽'}</span>
+      <span class="cart-item-name">${c.name} <b style="color:var(--fg-soft);">×${c.qty}</b></span>
+      <span class="cart-item-price">${c.price * c.qty} ₽</span>
+      <button class="cart-item-remove" data-remove="${c.id}" type="button" title="Удалить">✕</button>
+    </div>
+  `).join('');
+  const total = state.cart.reduce((s,i) => s + i.price * i.qty, 0);
+  totalEl.textContent = total.toLocaleString('ru') + ' ₽';
+}
+
+function openCart(){
+  document.getElementById('cartPanel').classList.add('open');
+  document.getElementById('cartOverlay').classList.add('show');
+  renderCart();
+}
+function closeCart(){
+  document.getElementById('cartPanel').classList.remove('open');
+  document.getElementById('cartOverlay').classList.remove('show');
+}
+
+function renderEvents(){
+  const el = document.getElementById('eventsList');
+  if(!el) return;
+  el.innerHTML = EVENTS.map(e => `
+    <div class="event">
+      <div class="event-date"><span class="event-day">${e.day}</span><span class="event-month">${e.month}</span></div>
+      <div class="event-body"><h3>${e.title}</h3><p>${e.desc}</p></div>
+    </div>
+  `).join('');
+}
+
+function renderReviews(){
+  const stored = loadLS('tv:reviews', []);
+  const all = [...stored, ...SEED_REVIEWS];
+  const el = document.getElementById('reviewsList');
+  if(!el) return;
+  el.innerHTML = all.slice(0, 6).map(r => `
+    <div class="review">
+      <div class="review-head"><span class="review-name">${escapeHTML(r.name)}</span><span class="review-stars">${'⭐'.repeat(r.rating)}</span></div>
+      <div class="review-text">${escapeHTML(r.text)}</div>
+    </div>
+  `).join('');
+}
+
+function escapeHTML(s){
+  if(!s) return '';
+  return s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+function submitBooking(e){
+  e.preventDefault();
+  const name = document.getElementById('bName').value.trim();
+  const date = document.getElementById('bDate').value;
+  const time = document.getElementById('bTime').value;
+  const guests = document.getElementById('bGuests').value;
+  const phone = document.getElementById('bPhone').value.trim();
+  const email = document.getElementById('bEmail').value.trim();
+  const note = document.getElementById('bNote').value;
+  if(!name || !date || !time || !phone){
+    toast('⚠️ Заполните обязательные поля', 'error');
+    return;
+  }
+  const data = {name, date, time, guests, phone, email, note, ts: Date.now()};
+  const arr = loadLS('tv:bookings', []);
+  arr.push(data);
+  saveLS('tv:bookings', arr);
+  const success = document.getElementById('bookingSuccess');
+  if(success){
+    success.innerHTML = `✓ <b>Стол забронирован!</b><br>${escapeHTML(name)}, ждём вас ${date} в ${time}. Гостей: ${guests}.<br>Подтверждение отправлено на ${escapeHTML(email||phone)}.`;
+    success.classList.add('show');
+  }
+  toast(`✓ Стол забронирован на ${date} в ${time}`, 'success');
+  document.getElementById('bookingForm').reset();
+  document.getElementById('bTime').value = '19:00';
+  setTimeout(()=>{ if(success) success.classList.remove('show'); }, 15000);
+}
+
+function submitReview(e){
+  e.preventDefault();
+  const name = document.getElementById('rName').value.trim();
+  const text = document.getElementById('rText').value.trim();
+  const rating = parseInt(document.getElementById('rRating').value);
+  if(!name || !text){
+    toast('⚠️ Заполните имя и отзыв', 'error');
+    return;
+  }
+  const arr = loadLS('tv:reviews', []);
+  arr.unshift({name, text, rating, ts: Date.now()});
+  saveLS('tv:reviews', arr.slice(0, 50));
+  const success = document.getElementById('reviewSuccess');
+  if(success){
+    success.innerHTML = `✓ <b>Спасибо за отзыв, ${escapeHTML(name)}!</b><br>Ваша оценка: ${'⭐'.repeat(rating)}`;
+    success.classList.add('show');
+  }
+  toast('✓ Спасибо за отзыв!', 'success');
+  document.getElementById('reviewForm').reset();
+  renderReviews();
+  setTimeout(()=>{ if(success) success.classList.remove('show'); }, 10000);
+}
+
+function toggleTheme(){
+  const html = document.documentElement;
+  const cur = html.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  const next = cur === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  saveLS('tv:landingTheme', next);
+  document.getElementById('themeToggle').textContent = next === 'dark' ? '☀️' : '🌙';
+}
+
+function initScrollNav(){
+  document.querySelectorAll('[data-scroll]').forEach(a => {
+    a.addEventListener('click', e => {
+      const href = a.getAttribute('href');
+      if(!href || !href.startsWith('#')) return;
+      const target = document.querySelector(href);
+      if(!target) return;
+      e.preventDefault();
+      const headerHeight = 70;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+      window.scrollTo({top, behavior:'smooth'});
+    });
+  });
+}
+
+function init(){
+  const savedTheme = loadLS('tv:landingTheme', 'dark');
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  document.getElementById('themeToggle').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+  document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+  initScrollNav();
+
+  document.getElementById('menuTabs').addEventListener('click', e => {
+    const tab = e.target.closest('.menu-tab');
+    if(!tab) return;
+    state.activeTab = tab.dataset.cat;
+    renderMenu();
+  });
+  document.querySelectorAll('[data-filter]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.activeFilter = btn.dataset.filter;
+      renderMenu();
+    });
+  });
+  document.getElementById('menuSearch').addEventListener('input', e => {
+    state.searchQuery = e.target.value.trim();
+    renderMenu();
+  });
+  document.getElementById('menuSort').addEventListener('change', e => {
+    state.sort = e.target.value;
+    renderMenu();
+  });
+  document.getElementById('menuGrid').addEventListener('click', e => {
+    const favBtn = e.target.closest('.fav-btn');
+    const addBtn = e.target.closest('.add-btn');
+    if(favBtn){
+      const id = favBtn.dataset.id;
+      if(state.favorites.includes(id)){ state.favorites = state.favorites.filter(f => f !== id); }
+      else { state.favorites.push(id); }
+      saveLS('tv:favorites', state.favorites);
+      renderMenu();
+      return;
+    }
+    if(addBtn){ addToCart(addBtn.dataset.id); return; }
+  });
+
+  document.getElementById('cartBtn').addEventListener('click', openCart);
+  document.getElementById('cartClose').addEventListener('click', closeCart);
+  document.getElementById('cartOverlay').addEventListener('click', closeCart);
+  document.getElementById('cartItems').addEventListener('click', e => {
+    const removeBtn = e.target.closest('[data-remove]');
+    if(removeBtn) removeFromCart(removeBtn.dataset.remove);
+  });
+  document.getElementById('cartCheckout').addEventListener('click', () => {
+    if(state.cart.length === 0){ toast('Корзина пуста', 'error'); return; }
+    const total = state.cart.reduce((s,i) => s + i.price * i.qty, 0);
+    const arr = loadLS('tv:orders', []);
+    arr.push({items: state.cart, total, ts: Date.now()});
+    saveLS('tv:orders', arr);
+    state.cart = [];
+    saveLS('tv:cart', []);
+    updateCartBadge();
+    renderCart();
+    closeCart();
+    toast(`✓ Заказ на ${total.toLocaleString('ru')} ₽ принят! Мы позвоним для подтверждения.`, 'success');
+  });
+
+  document.getElementById('bookingForm').addEventListener('submit', submitBooking);
+  document.getElementById('reviewForm').addEventListener('submit', submitReview);
+
+  renderMenu();
+  renderEvents();
+  renderReviews();
+  updateCartBadge();
+  renderCart();
+}
+
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+</script>
+</body>
+</html>
